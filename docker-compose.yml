@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+  apartment-manager:
+    container_name: apartment-manager
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '4201:4200'
