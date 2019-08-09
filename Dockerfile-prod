@@ -1,6 +1,4 @@
-#############
-### build ###
-#############
+### STAGE 1: Build ###
 
 # base image
 FROM node:10.16.1 as build
@@ -31,9 +29,7 @@ RUN ng e2e --port 4202
 # generate build
 RUN ng build --output-path=dist
 
-############
-### prod ###
-############
+### STAGE 2: Setup ###
 
 # base image
 FROM nginx:1.16.0-alpine
