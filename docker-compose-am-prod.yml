@@ -6,6 +6,6 @@ services:
     container_name: apartment-manager-ui-prod
     build:
       context: .
-      dockerfile: Dockerfile-prod
+      dockerfile: am-prod.Dockerfile
     ports:
       - '80:80'
