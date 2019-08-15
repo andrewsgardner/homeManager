@@ -3,21 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "apartmentManager": {
+    "ui-service": {
+      "root": "",
+      "sourceRoot": "src",
       "projectType": "application",
+      "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apartmentManager",
+            "outputPath": "dist/ui-service",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "apartmentManager:build"
+            "browserTarget": "ui-service:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "apartmentManager:build:production"
+              "browserTarget": "ui-service:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "apartmentManager:build"
+            "browserTarget": "ui-service:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "apartmentManager:serve"
+            "devServerTarget": "ui-service:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "apartmentManager:serve:production"
+              "devServerTarget": "ui-service:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "apartmentManager"
+  "defaultProject": "ui-service"
 }
