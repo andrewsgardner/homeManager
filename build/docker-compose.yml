@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+
+  ui-service:
+    build: ../ui-service
+    restart: always
+    # depends_on:
+      # - "x"
+    ports:
+      - '4201:4200'

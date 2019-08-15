@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+
+  ui-service:
+    build:
+      context: ../ui-service
+      dockerfile: am-prod.Dockerfile
+    ports:
+      - 80:80
