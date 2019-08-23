@@ -3,9 +3,8 @@ version: '3.7'
 services:
 
   ui-service:
-    build: ../ui-service
-    restart: always
-    # depends_on:
-      # - "x"
+    build:
+      context: ../ui-service
+      dockerfile: Dockerfile
     ports:
-      - '4201:4200'
+      - 8080:8080
