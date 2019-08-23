@@ -26,8 +26,8 @@ COPY . /app
 RUN ng test --watch=false
 RUN ng e2e --port 4202
 
-# generate build
-RUN ng build --output-path=dist
+# generate prod build
+RUN ng build --prod --output-path=dist
 
 ### STAGE 2: Setup ###
 
