@@ -2,9 +2,21 @@ version: '3.7'
 
 services:
 
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    volumes:
+      - local-mongo:/data/db
+  
   ui-service:
     build:
       context: ../ui-service
       dockerfile: Dockerfile
     ports:
       - 8080:8080
+
+volumes:
+  local-mongo: {}
