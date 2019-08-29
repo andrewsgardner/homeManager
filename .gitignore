@@ -47,4 +47,4 @@ Thumbs.db
 
 # Docker Environment Vars
 build/.env
-build/.env.dist
+build/.env.prod
