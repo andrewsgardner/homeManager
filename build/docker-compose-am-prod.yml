@@ -2,9 +2,22 @@ version: '3.7'
 
 services:
 
+  mongo:
+    image: mongo
+    container_name: mongo_prod
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME_PROD}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD_PROD}
+    volumes:
+      - mongo_data_prod:/data/db
+
   ui-service:
     build:
       context: ../ui-service
       dockerfile: am-prod.Dockerfile
     ports:
       - 80:80
+
+volumes:
+  mongo_data_prod: {}
