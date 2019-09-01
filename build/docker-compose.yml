@@ -10,7 +10,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
     volumes:
-      - mongodb:/data/db
+      - mongo_data:/data/db
   
   ui-service:
     build:
@@ -20,4 +20,4 @@ services:
       - 8080:8080
 
 volumes:
-  mongodb: {}
+  mongo_data: {}
