@@ -4,20 +4,34 @@ services:
 
   mongo:
     image: mongo
-    container_name: mongo
+    container_name: mongo_dev
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
     volumes:
-      - mongo_data:/data/db
+      - mongo_data_dev:/data/db
+    ports:
+      - 27017:27017
+
+  graphql-service:
+    build: ../graphql-service
+    restart: always
+    environment:
+      - NODE_ENV=docker
+    ports:
+      - 4000:4000
+    depends_on:
+      - "mongo"
   
   ui-service:
     build:
       context: ../ui-service
       dockerfile: Dockerfile
+    depends_on:
+      - "graphql-service"
     ports:
       - 8080:8080
 
 volumes:
-  mongo_data: {}
+  mongo_data_dev: {}
