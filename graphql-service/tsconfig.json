@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+
+    /* Basic Options */
+    "target": "es2016",
+    "module": "commonjs",
+    "lib": ["dom", "es2016", "esnext.asynciterable"],
+    "sourceMap": true,
+    "outDir": "./dist",
+
+    /* Strict Type-Checking Options */
+    "strict": false,
+    "strictPropertyInitialization": false,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
