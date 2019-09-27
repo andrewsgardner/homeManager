@@ -7,20 +7,26 @@ services:
     container_name: mongo_dev
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASS}
     volumes:
       - mongo_data_dev:/data/db
     ports:
-      - 27017:27017
+      - ${MONGO_PORT}:${MONGO_PORT}
 
   graphql-service:
     build: ../graphql-service
     restart: always
     environment:
-      - NODE_ENV=docker
+      - MONGO_HOST=${MONGO_HOST}
+      - MONGO_PORT=${MONGO_PORT}
+      - MONGO_ROOT_DB=${MONGO_ROOT_DB}
+      - MONGO_ROOT_USER=${MONGO_ROOT_USER}
+      - MONGO_ROOT_PASS=${MONGO_ROOT_PASS}
+      - MONGO_APP_DB=${MONGO_APP_DB}
+      - GQL_PORT=${GQL_PORT}
     ports:
-      - 4000:4000
+      - ${GQL_PORT}:${GQL_PORT}
     depends_on:
       - "mongo"
   
@@ -28,10 +34,12 @@ services:
     build:
       context: ../ui-service
       dockerfile: Dockerfile
+    environment:
+        - UI_PORT=${UI_PORT}
     depends_on:
       - "graphql-service"
     ports:
-      - 8080:8080
+      - ${UI_PORT}:${UI_PORT}
 
 volumes:
   mongo_data_dev: {}

@@ -20,4 +20,4 @@ COPY --from=node /code/dist /dist/dist
 
 WORKDIR /dist
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/server.js"]
