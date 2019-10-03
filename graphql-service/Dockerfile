@@ -15,7 +15,6 @@ COPY . ./
 FROM node:10.16.1-alpine
 
 COPY --from=node /code/node_modules /dist/node_modules
-COPY --from=node /code/config  /dist/config
 COPY --from=node /code/dist /dist/dist
 
 WORKDIR /dist
