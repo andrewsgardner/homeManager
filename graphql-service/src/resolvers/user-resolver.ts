@@ -13,4 +13,9 @@ export class UserResolver {
         return UserModel.findById(userId);
     }
 
+    @Query(returns => [User])
+    async getUsers(): Promise<User[]> {
+        return await UserModel.find({});
+    }
+
 }
