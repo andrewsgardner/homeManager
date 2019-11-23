@@ -7,17 +7,40 @@ services:
     container_name: mongo_prod
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME_PROD}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD_PROD}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER_PROD}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASS_PROD}
     volumes:
       - mongo_data_prod:/data/db
+    ports:
+      - ${MONGO_PORT_PROD}:${MONGO_PORT_PROD}
+  
+  graphql-service:
+    build: ../graphql-service
+    restart: always
+    environment:
+      - MONGO_HOST=${MONGO_HOST_PROD}
+      - MONGO_PORT=${MONGO_PORT_PROD}
+      - MONGO_ROOT_DB=${MONGO_ROOT_DB_PROD}
+      - MONGO_ROOT_USER=${MONGO_ROOT_USER_PROD}
+      - MONGO_ROOT_PASS=${MONGO_ROOT_PASS_PROD}
+      - MONGO_APP_DB=${MONGO_APP_DB_PROD}
+      - MONGO_ENV=${MONGO_ENV_PROD}
+      - GQL_PORT=${GQL_PORT_PROD}
+    ports:
+      - ${GQL_PORT_PROD}:${GQL_PORT_PROD}
+    depends_on:
+      - "mongo"
 
   ui-service:
     build:
       context: ../ui-service
       dockerfile: am-prod.Dockerfile
+    environment:
+      - UI_PORT=${UI_PORT_PROD}
+    depends_on:
+      - "graphql-service"
     ports:
-      - 80:80
+      - ${UI_PORT_PROD}:${UI_PORT_PROD}
 
 volumes:
   mongo_data_prod: {}

@@ -19,14 +19,12 @@ export interface Context {
 async function bootstrap() {
 
     try {
+        const authSource = (process.env.MONGO_ENV === 'dev') ? '?authSource=' + process.env.MONGO_ROOT_DB : '';
         const mongo = {
-            url: 'mongodb://' + process.env.MONGO_HOST + ':' + process.env.MONGO_PORT + '/' + process.env.MONGO_ROOT_DB,
+            url: 'mongodb://' + process.env.MONGO_ROOT_USER + ':' + process.env.MONGO_ROOT_PASS + '@' + process.env.MONGO_HOST + ':' + process.env.MONGO_PORT + '/' + process.env.MONGO_APP_DB + authSource,
             opts: {
                 useNewUrlParser: true,
                 useFindAndModify: false,
-                dbName: process.env.MONGO_APP_DB,
-                user: process.env.MONGO_ROOT_USER,
-                pass: process.env.MONGO_ROOT_PASS,
                 useUnifiedTopology: true
             }
         }
