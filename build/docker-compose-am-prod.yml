@@ -24,7 +24,8 @@ services:
       - MONGO_ROOT_USER=${MONGO_ROOT_USER_PROD}
       - MONGO_ROOT_PASS=${MONGO_ROOT_PASS_PROD}
       - MONGO_APP_DB=${MONGO_APP_DB_PROD}
-      - MONGO_ENV=${MONGO_ENV_PROD}
+      # MONGO_ENV must equal 'prod' in production
+      - MONGO_ENV=prod
       - GQL_PORT=${GQL_PORT_PROD}
     ports:
       - ${GQL_PORT_PROD}:${GQL_PORT_PROD}

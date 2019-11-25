@@ -24,7 +24,8 @@ services:
       - MONGO_ROOT_USER=${MONGO_ROOT_USER}
       - MONGO_ROOT_PASS=${MONGO_ROOT_PASS}
       - MONGO_APP_DB=${MONGO_APP_DB}
-      - MONGO_ENV=${MONGO_ENV}
+      # MONGO_ENV must equal 'dev' in development
+      - MONGO_ENV=dev
       - GQL_PORT=${GQL_PORT}
     ports:
       - ${GQL_PORT}:${GQL_PORT}
