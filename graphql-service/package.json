@@ -20,7 +20,7 @@
     "graphql": "^14.5.4",
     "lodash": "^4.17.15",
     "luxon": "^1.19.3",
-    "mongoose": "^5.7.0",
+    "mongoose": "^5.7.12",
     "type-graphql": "^0.17.5",
     "typegoose": "^5.9.1"
   },
