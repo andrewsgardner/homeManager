@@ -1,9 +1,9 @@
-import { prop as Property, Typegoose } from 'typegoose';
+import { prop as Property, getModelForClass } from '@typegoose/typegoose';
 import { ObjectId } from 'mongodb';
 import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType()
-export class User extends Typegoose {
+export class User {
 
     @Field()
     readonly _id: ObjectId;
@@ -21,4 +21,4 @@ export class User extends Typegoose {
 
 }
 
-export const UserModel = new User().getModelForClass(User);
+export const UserModel = getModelForClass(User);
