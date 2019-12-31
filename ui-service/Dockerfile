@@ -1,10 +1,15 @@
 # base image
 FROM node:10.16.1 as build
 
-# install chrome for protractor tests
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-RUN apt-get update && apt-get install -yq google-chrome-stable
+# install chrome and update webdriver for protractor tests
+RUN set -eux \
+    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
+    && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        google-chrome-stable \
+    && npm install -g webdriver-manager \
+    && webdriver-manager update
 
 # set working directory
 WORKDIR /app
