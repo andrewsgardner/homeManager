@@ -54,7 +54,11 @@ The value for ``MONGO_ROOT_DB_PROD`` should be **admin** - which references the 
 
 The value for ``MONGO_HOST_PROD`` should be **mongo** - which references the MongoDB service container.
 
-NOTE: Manually specify the network port to expose in [docker-compose-am-prod.yml](https://github.com/andrewsgardner/apartmentManager/blob/master/build/docker-compose-am-prod.yml). This should match UI_PORT_PROD.
+Configure Manually:
+
+1. Specify the exposed port in [ui-service/am-prod.Dockerfile](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/am-prod.Dockerfile). This should match UI_PORT_PROD.
+
+2. Specify the Nginx port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match UI_PORT_PROD.
 
 **Development:**
 
@@ -77,7 +81,11 @@ The value for ``MONGO_ROOT_DB`` should be **admin** - which references the Mongo
 
 The value for ``MONGO_HOST`` should be **mongo** - which references the MongoDB service container.
 
-NOTE: Manually specify the network port to expose in [docker-compose.yml](https://github.com/andrewsgardner/apartmentManager/blob/master/build/docker-compose.yml). This should match UI_PORT.
+Configure Manually:
+
+1. Specify the exposed port in [ui-service/Dockerfile](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/Dockerfile). This should match UI_PORT.
+
+2. Specify the Nginx port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match UI_PORT.
 
 ### Docker Compose
 
