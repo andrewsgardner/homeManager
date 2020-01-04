@@ -1,23 +1,48 @@
-import { prop as Property, getModelForClass } from '@typegoose/typegoose';
-import { ObjectId } from 'mongodb';
+import { getModelForClass, prop } from '@typegoose/typegoose';
 import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType()
 export class User {
 
+    @prop()
     @Field()
-    readonly _id: ObjectId;
+    public _id: string;
 
+    @prop({ maxLength: 128 })
     @Field()
-    @Property({ required: true })
-    email: string;
+    public firstName: string;
 
+    @prop({ maxLength: 128 })
+    @Field()
+    public lastName: string;
+
+    @prop({ maxLength: 128 })
     @Field({ nullable: true })
-    @Property()
-    nickname?: string;
+    public nickname?: string;
 
-    @Property({ required: true })
-    password: string;
+    @prop({ maxLength: 128, required: true })
+    @Field()
+    public email: string;
+    
+    @prop({ maxLength: 128, required: true })
+    @Field()
+    public password: string;
+
+    @prop()
+    @Field()
+    public lastLoginDate: Date;
+
+    @prop()
+    @Field()
+    public createdDate: Date;
+
+    @prop()
+    @Field()
+    public updatedDate: Date;
+
+    @prop()
+    @Field({ nullable: false })
+    public systemUser: boolean;
 
 }
 
