@@ -13,6 +13,22 @@ services:
       - mongo_data_dev:/data/db
     ports:
       - ${MONGO_PORT}:${MONGO_PORT}
+  
+  keycloak-service:
+    build:
+      context: ../keycloak-service
+      dockerfile: Dockerfile
+      args:
+        - KEYCLOAK_ROOT_USER=${KEYCLOAK_ROOT_USER}
+        - KEYCLOAK_ROOT_PASS=${KEYCLOAK_ROOT_PASS}
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - KEYCLOAK_IMPORT=/opt/jboss/keycloak/apartment-manager-realm.json
+      - DB_VENDOR=h2
+    volumes:
+      - keycloak_db_dev:/opt/jboss/keycloak/standalone/data/
 
   graphql-service:
     build: ../graphql-service
@@ -45,3 +61,4 @@ services:
 
 volumes:
   mongo_data_dev: {}
+  keycloak_db_dev: {}
