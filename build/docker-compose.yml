@@ -56,6 +56,7 @@ services:
         - UI_PORT=${UI_PORT}
     depends_on:
       - "graphql-service"
+      - "keycloak-service"
     ports:
       - ${UI_PORT}:${UI_PORT}
 
