@@ -13,6 +13,22 @@ services:
       - mongo_data_prod:/data/db
     ports:
       - ${MONGO_PORT_PROD}:${MONGO_PORT_PROD}
+
+  keycloak-service:
+    build:
+      context: ../keycloak-service
+      dockerfile: Dockerfile
+      args:
+        - KEYCLOAK_ROOT_USER=${KEYCLOAK_ROOT_USER_PROD}
+        - KEYCLOAK_ROOT_PASS=${KEYCLOAK_ROOT_PASS_PROD}
+    restart: always
+    ports:
+      - ${KEYCLOAK_PORT_PROD}:${KEYCLOAK_PORT_PROD}
+    environment:
+      - KEYCLOAK_IMPORT=/opt/jboss/keycloak/apartment-manager-realm.json
+      - DB_VENDOR=h2
+    volumes:
+      - keycloak_db_prod:/opt/jboss/keycloak/standalone/data/
   
   graphql-service:
     build: ../graphql-service
@@ -40,8 +56,10 @@ services:
       - UI_PORT=${UI_PORT_PROD}
     depends_on:
       - "graphql-service"
+      - "keycloak-service"
     ports:
       - ${UI_PORT_PROD}:${UI_PORT_PROD}
 
 volumes:
   mongo_data_prod: {}
+  keycloak_db_prod: {}
