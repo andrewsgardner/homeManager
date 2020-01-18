@@ -57,7 +57,7 @@ The value for ``MONGO_ROOT_DB_PROD`` should be **admin** - which references the 
 
 The value for ``MONGO_HOST_PROD`` should be **mongo** - which references the MongoDB service container.
 
-The value for ``KEYCLOAK_PORT_PROD`` should be **8080** unless Keycloak's port-offset value has been modified with [standalone.sh]()https://codehumsafar.wordpress.com/2018/09/22/keycloak-run-server-at-different-port/.
+The value for ``KEYCLOAK_PORT_PROD`` should be **8080** unless Keycloak's port-offset value has been modified with [standalone.sh](https://codehumsafar.wordpress.com/2018/09/22/keycloak-run-server-at-different-port/).
 
 Configure Manually:
 
@@ -89,7 +89,7 @@ The value for ``MONGO_ROOT_DB`` should be **admin** - which references the Mongo
 
 The value for ``MONGO_HOST`` should be **mongo** - which references the MongoDB service container.
 
-The value for ``KEYCLOAK_PORT`` should be **8080** unless Keycloak's port-offset value has been modified with [standalone.sh]()https://codehumsafar.wordpress.com/2018/09/22/keycloak-run-server-at-different-port/.
+The value for ``KEYCLOAK_PORT`` should be **8080** unless Keycloak's port-offset value has been modified with [standalone.sh](https://codehumsafar.wordpress.com/2018/09/22/keycloak-run-server-at-different-port/).
 
 Configure Manually:
 
