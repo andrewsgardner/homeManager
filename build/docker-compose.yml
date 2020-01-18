@@ -23,7 +23,7 @@ services:
         - KEYCLOAK_ROOT_PASS=${KEYCLOAK_ROOT_PASS}
     restart: always
     ports:
-      - "8080:8080"
+      - ${KEYCLOAK_PORT}:${KEYCLOAK_PORT}
     environment:
       - KEYCLOAK_IMPORT=/opt/jboss/keycloak/apartment-manager-realm.json
       - DB_VENDOR=h2

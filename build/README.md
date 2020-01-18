@@ -71,6 +71,7 @@ MONGO_PORT=your_value
 MONGO_APP_DB=your_value
 KEYCLOAK_ROOT_USER=your_value
 KEYCLOAK_ROOT_PASS=your_value
+KEYCLOAK_PORT=your_value
 APP_MONGO_USER=your_value
 APP_MONGO_PASS=your_value
 GQL_PORT=your_value
