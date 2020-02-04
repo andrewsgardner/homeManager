@@ -29,7 +29,7 @@ COPY . /app
 
 # run tests
 RUN ng test --watch=false
-RUN ng e2e --port 4202
+# RUN ng e2e --port 4202
 
 # generate prod build
 RUN ng build --prod --output-path=dist

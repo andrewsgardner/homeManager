@@ -1,0 +1,66 @@
+{
+    "realm": "apartment-manager",
+    "displayName": "Apartment Manager",
+    "displayNameHtml": "Apartment Manager",
+    "enabled": true,
+    "sslRequired": "external",
+    "registrationAllowed": true,
+    "requiredCredentials": [ "password" ],
+    "users" : [
+        {
+            "username" : "test",
+            "enabled": true,
+            "email" : "test@example.com",
+            "firstName": "John",
+            "lastName": "Smith",
+            "credentials" : [
+                { "type" : "password",
+                  "value" : "password" }
+            ],
+            "realmRoles": [ "user" ],
+            "clientRoles": {
+                "account": ["view-profile", "manage-account"]
+            }
+        }
+    ],
+    "roles" : {
+        "realm" : [
+            {
+                "name": "user",
+                "description": "User privileges"
+            },
+            {
+                "name": "admin",
+                "description": "Administrator privileges"
+            }
+        ]
+    },
+    "scopeMappings": [
+        {
+            "client": "apartment-manager-client",
+            "roles": ["user"]
+        }
+    ],
+    "clients": [
+        {
+            "clientId": "apartment-manager-client",
+            "enabled": true,
+            "publicClient": true,
+            "baseUrl": "/apartment-manager-client",
+            "redirectUris": [
+                "http://localhost:4200/*"
+            ],
+            "webOrigins": [
+                "http://localhost:4200/*"
+            ]
+        }
+    ],
+    "clientScopeMappings": {
+        "account": [
+            {
+                "client": "apartment-manager-client",
+                "roles": ["view-profile"]
+            }
+        ]
+    }
+}
