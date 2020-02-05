@@ -1,33 +1,48 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
-
+import { NgModule, DoBootstrap, ApplicationRef } from '@angular/core';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AppRoutingModule } from './app-routing.module';
-
-import { AuthenticationService } from './services/authentication.service';
 
 import { AppComponent } from './app.component';
 
-export function kcFactory(authService: AuthenticationService) {
-  return () => authService.init();
-}
+import { environment } from 'src/environments/environment';
+
+const keycloakService = new KeycloakService();
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    KeycloakAngularModule,
     BrowserModule,
     AppRoutingModule
   ],
   providers: [
-    AuthenticationService,
     {
-      provide: APP_INITIALIZER,
-      useFactory: kcFactory,
-      deps: [AuthenticationService],
-      multi: true
+      provide: KeycloakService,
+      useValue: keycloakService
     }
   ],
-  bootstrap: [AppComponent]
+  entryComponents: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements DoBootstrap {
+  async ngDoBootstrap(appRef: ApplicationRef) {
+    const { keycloak } = environment;
+
+    try {
+      await keycloakService.init({
+        config: keycloak,
+        initOptions: {
+          onLoad: 'login-required'
+        }
+      })
+      .then(() => {
+        console.log('[ngDoBootstrap] bootstrap ui-service');
+      });
+      appRef.bootstrap(AppComponent);
+    } catch (error) {
+      console.error('[ngDoBootstrap] init Keycloak failed', error);
+    }
+  }
+}
