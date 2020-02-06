@@ -20,7 +20,10 @@ export class ConfigService {
 
     public getKeycloakInit(): KeycloakOptions {
         return {
-            config: environment.keycloak
+            config: environment.keycloak,
+            initOptions: {
+              onLoad: 'login-required'
+            }
         }
     }
 }

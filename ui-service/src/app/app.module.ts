@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { environment } from 'src/environments/environment';
+import { ConfigService } from 'src/app/services/config.service';
 
 const keycloakService = new KeycloakService();
 
@@ -27,16 +27,13 @@ const keycloakService = new KeycloakService();
   entryComponents: [AppComponent]
 })
 export class AppModule implements DoBootstrap {
-  async ngDoBootstrap(appRef: ApplicationRef) {
-    const { keycloak } = environment;
+  constructor(private configService: ConfigService) {}
 
+  async ngDoBootstrap(appRef: ApplicationRef) {
     try {
-      await keycloakService.init({
-        config: keycloak,
-        initOptions: {
-          onLoad: 'login-required'
-        }
-      })
+      const config = (this.configService.useKeycloak()) ? this.configService.getKeycloakInit() : null;
+      
+      await keycloakService.init(config)
       .then(() => {
         console.log('[ngDoBootstrap] bootstrap ui-service');
       });
