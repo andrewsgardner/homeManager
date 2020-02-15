@@ -12,6 +12,8 @@ const keycloakConfig: KeycloakConfig = {
 
 export const environment = {
   production: false,
+  environment: $ENV.Environment,
+  uiPort: $ENV.UiPort,
   gqlBaseUrl: '/graphql',
   keycloak: keycloakConfig,
 };

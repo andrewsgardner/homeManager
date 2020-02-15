@@ -52,8 +52,9 @@ services:
     build:
       context: ../ui-service
       dockerfile: Dockerfile
-    environment:
-        - UI_PORT=${UI_PORT}
+      args:
+        - SET_ENVIRONMENT=dev
+        - SET_UI_PORT=${UI_PORT}
     depends_on:
       - "graphql-service"
       - "keycloak-service"

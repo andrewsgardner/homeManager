@@ -1,6 +1,16 @@
 # base image
 FROM node:10.16.1 as build
 
+# get env vars from compose file
+
+# ENVIRONMENT
+ARG SET_ENVIRONMENT
+ENV Environment=${SET_ENVIRONMENT}
+
+# UiPort
+ARG SET_UI_PORT
+ENV UiPort=${SET_UI_PORT}
+
 # install chrome and update webdriver for protractor tests
 RUN set -eux \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
@@ -26,7 +36,7 @@ RUN npm install -g @angular/cli@8.3.20
 COPY . /app
 
 # run tests
-RUN ng test --watch=false
+# RUN ng test --watch=false
 # RUN ng e2e --port 4202
 
 # generate build
@@ -43,5 +53,5 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # copy nginx config
 COPY ./nginx.dev.conf /etc/nginx/conf.d/default.conf
 
-# expose port 4200
-EXPOSE 4200
+# expose port
+EXPOSE $UiPort
