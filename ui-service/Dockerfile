@@ -36,7 +36,7 @@ RUN npm install -g @angular/cli@8.3.20
 COPY . /app
 
 # run tests
-# RUN ng test --watch=false
+RUN ng test --watch=false
 # RUN ng e2e --port 4202
 
 # generate build
