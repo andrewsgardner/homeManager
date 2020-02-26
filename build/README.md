@@ -59,11 +59,13 @@ The value for ``MONGO_HOST_PROD`` should be **mongo** - which references the Mon
 
 The value for ``KEYCLOAK_PORT_PROD`` should be **8080** unless Keycloak's port-offset value has been modified with [standalone.sh](https://codehumsafar.wordpress.com/2018/09/22/keycloak-run-server-at-different-port/).
 
-Configure Manually:
+Configure Nginx:*
 
 1. Specify the Nginx port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match UI_PORT_PROD.
 
 2. Specify the Keycloak port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match KEYCLOAK_PORT_PROD.
+
+###### *Manual configuration required - not included in docker compose build.
 
 **Development:**
 
@@ -91,11 +93,13 @@ The value for ``MONGO_HOST`` should be **mongo** - which references the MongoDB 
 
 The value for ``KEYCLOAK_PORT`` should be **8080** unless Keycloak's port-offset value has been modified with [standalone.sh](https://codehumsafar.wordpress.com/2018/09/22/keycloak-run-server-at-different-port/).
 
-Configure Manually:
+Configure Nginx:*
 
 1. Specify the Nginx port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match UI_PORT.
 
 2. Specify the Keycloak port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match KEYCLOAK_PORT.
+
+###### *Manual configuration required - not included in docker compose build.
 
 ### Docker Compose
 
@@ -113,7 +117,8 @@ Use the default [docker-compose.yml](https://github.com/andrewsgardner/apartment
 
 ```docker-compose up --build -d```
 
-**Common Docker Commands:**
+### Common Docker Commands:
+
 List all containers.
 ```docker ps```
 
