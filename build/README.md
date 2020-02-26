@@ -59,9 +59,9 @@ The value for ``KEYCLOAK_PORT_PROD`` should be **8080** unless Keycloak's port-o
 
 **Configure Nginx:\***
 
-1. Specify the Nginx port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match UI_PORT_PROD.
+1. Specify the Nginx port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match ``UI_PORT_PROD``.
 
-2. Specify the Keycloak port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match KEYCLOAK_PORT_PROD.
+2. Specify the Keycloak port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match ``KEYCLOAK_PORT_PROD``.
 
 ###### *Manual configuration required - not included in docker compose build.
 
@@ -93,9 +93,9 @@ The value for ``KEYCLOAK_PORT`` should be **8080** unless Keycloak's port-offset
 
 **Configure Nginx:\***
 
-1. Specify the Nginx port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match UI_PORT.
+1. Specify the Nginx port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match ``UI_PORT``.
 
-2. Specify the Keycloak port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match KEYCLOAK_PORT.
+2. Specify the Keycloak port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match ``KEYCLOAK_PORT``.
 
 ###### *Manual configuration required - not included in docker compose build.
 
