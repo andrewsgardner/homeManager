@@ -2,14 +2,12 @@
 
 Build all 3 containers with [Docker Compose](https://docs.docker.com/compose/).
 
-## Deployment
-
 Dependencies:
 * Docker Compose
 * Node.js
 * Angular CLI
 
-### Build From Source
+## Build From Source
 
 Clone the project files onto your server:
 
@@ -27,7 +25,7 @@ Install npm dependencies and build ui-service:
 2. ``npm install``
 3. ``npm run build``
 
-### Environment Variables
+## Environment Variables
 
 Navigate to [/build](https://github.com/andrewsgardner/apartmentManager/tree/master/build) and create an environment file called ``.env``.
 
@@ -101,7 +99,7 @@ Configure Nginx:*
 
 ###### *Manual configuration required - not included in docker compose build.
 
-### Docker Compose
+## Docker Compose
 
 Build all containers with Docker Compopose from the [/build](https://github.com/andrewsgardner/apartmentManager/tree/master/build) directory.
 
@@ -117,7 +115,7 @@ Use the default [docker-compose.yml](https://github.com/andrewsgardner/apartment
 
 ```docker-compose up --build -d```
 
-### Common Docker Commands:
+## Common Docker Commands:
 
 List all containers: ```docker ps```
 
