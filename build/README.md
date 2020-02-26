@@ -31,7 +31,7 @@ Navigate to [/build](https://github.com/andrewsgardner/apartmentManager/tree/mas
 
 Docker Compose will expect values for the following environment variables:
 
-**Production:**
+### Production:
 
 ```
 MONGO_ROOT_USER_PROD=root
@@ -65,7 +65,7 @@ Configure Nginx:*
 
 ###### *Manual configuration required - not included in docker compose build.
 
-**Development:**
+### Development:
 
 ```
 MONGO_ROOT_USER=root
