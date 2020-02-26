@@ -119,14 +119,10 @@ Use the default [docker-compose.yml](https://github.com/andrewsgardner/apartment
 
 ### Common Docker Commands:
 
-List all containers.
-```docker ps```
+List all containers: ```docker ps```
 
-Execute a bash shell on a container.
-```docker exec -it <CONTAINER_ID> sh```
+Execute a bash shell on a container: ```docker exec -it <CONTAINER_ID> sh```
 
-Restart a running container.
-```docker restart <CONTAINER_ID>```
+Restart a running container: ```docker restart <CONTAINER_ID>```
 
-Fetch the logs of a container
-```docker logs <CONTAINER_ID>```
+Fetch the logs of a container: ```docker logs <CONTAINER_ID>```
