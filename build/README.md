@@ -27,7 +27,7 @@ Install npm dependencies and build ui-service:
 
 ## Environment Variables
 
-Navigate to [/build](https://github.com/andrewsgardner/apartmentManager/tree/master/build) and create an environment file called ``.env``.
+Navigate to [/build](https://github.com/andrewsgardner/apartmentManager/tree/master/build) and create an environment file: ``.env``
 
 Docker Compose will expect values for the following environment variables:
 
