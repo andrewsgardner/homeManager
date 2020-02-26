@@ -34,28 +34,28 @@ Docker Compose will expect values for the following environment variables:
 ### Production:
 
 ```
-MONGO_ROOT_USER_PROD=root
+MONGO_ROOT_USER_PROD=root*
 MONGO_ROOT_PASS_PROD=your_value
-MONGO_ROOT_DB_PROD=admin
-MONGO_HOST_PROD=mongo
+MONGO_ROOT_DB_PROD=admin*
+MONGO_HOST_PROD=mongo*
 MONGO_PORT_PROD=your_value
 MONGO_APP_DB_PROD=your_value
 KEYCLOAK_ROOT_USER_PROD=your_value
 KEYCLOAK_ROOT_PASS_PROD=your_value
-KEYCLOAK_PORT_PROD=8080
+KEYCLOAK_PORT_PROD=8080*
 APP_MONGO_USER_PROD=your_value
 APP_MONGO_PASS_PROD=your_value
 GQL_PORT_PROD=your_value
 UI_PORT_PROD=your_value
 ```
 
-The value for ``MONGO_ROOT_USER_PROD`` should be **root** - which references the MongoDB root user.
+###### *The value should be 'root' - which references the MongoDB root user.
 
-The value for ``MONGO_ROOT_DB_PROD`` should be **admin** - which references the MongoDB admin database.
+###### *The value should be 'admin' - which references the MongoDB admin database.
 
-The value for ``MONGO_HOST_PROD`` should be **mongo** - which references the MongoDB service container.
+###### *The value should be 'mongo' - which references the MongoDB service container.
 
-The value for ``KEYCLOAK_PORT_PROD`` should be **8080** unless Keycloak's port-offset value has been modified with [standalone.sh](https://codehumsafar.wordpress.com/2018/09/22/keycloak-run-server-at-different-port/).
+###### *The value should be **8080** - which references the Keycloak port.
 
 **Configure Nginx:\***
 
@@ -68,28 +68,28 @@ The value for ``KEYCLOAK_PORT_PROD`` should be **8080** unless Keycloak's port-o
 ### Development:
 
 ```
-MONGO_ROOT_USER=root
+MONGO_ROOT_USER=root*
 MONGO_ROOT_PASS=your_value
-MONGO_ROOT_DB=admin
-MONGO_HOST=mongo
+MONGO_ROOT_DB=admin*
+MONGO_HOST=mongo*
 MONGO_PORT=your_value
 MONGO_APP_DB=your_value
 KEYCLOAK_ROOT_USER=your_value
 KEYCLOAK_ROOT_PASS=your_value
-KEYCLOAK_PORT=8080
+KEYCLOAK_PORT=8080*
 APP_MONGO_USER=your_value
 APP_MONGO_PASS=your_value
 GQL_PORT=your_value
 UI_PORT=your_value
 ```
 
-The value for ``MONGO_ROOT_USER`` should be **root** - which references the MongoDB root user.
+###### *The value should be 'root' - which references the MongoDB root user.
 
-The value for ``MONGO_ROOT_DB`` should be **admin** - which references the MongoDB admin database.
+###### *The value should be 'admin' - which references the MongoDB admin database.
 
-The value for ``MONGO_HOST`` should be **mongo** - which references the MongoDB service container.
+###### *The value should be 'mongo' - which references the MongoDB service container.
 
-The value for ``KEYCLOAK_PORT`` should be **8080** unless Keycloak's port-offset value has been modified with [standalone.sh](https://codehumsafar.wordpress.com/2018/09/22/keycloak-run-server-at-different-port/).
+###### *The value should be **8080** - which references the Keycloak port.
 
 **Configure Nginx:\***
 
