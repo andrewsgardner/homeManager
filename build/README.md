@@ -61,9 +61,9 @@ The value for ``KEYCLOAK_PORT_PROD`` should be **8080** unless Keycloak's port-o
 
 Configure Manually:
 
-1. Specify the exposed port in [ui-service/am-prod.Dockerfile](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/am-prod.Dockerfile). This should match UI_PORT_PROD.
+1. Specify the Nginx port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match UI_PORT_PROD.
 
-2. Specify the Nginx port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match UI_PORT_PROD.
+2. Specify the Keycloak port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match KEYCLOAK_PORT_PROD.
 
 **Development:**
 
@@ -93,9 +93,9 @@ The value for ``KEYCLOAK_PORT`` should be **8080** unless Keycloak's port-offset
 
 Configure Manually:
 
-1. Specify the exposed port in [ui-service/Dockerfile](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/Dockerfile). This should match UI_PORT.
+1. Specify the Nginx port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match UI_PORT.
 
-2. Specify the Nginx port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match UI_PORT.
+2. Specify the Keycloak port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match KEYCLOAK_PORT.
 
 ### Docker Compose
 
@@ -112,3 +112,16 @@ Use the alternate [docker-compose-am-prod.yml](https://github.com/andrewsgardner
 Use the default [docker-compose.yml](https://github.com/andrewsgardner/apartmentManager/blob/master/build/docker-compose.yml) file.
 
 ```docker-compose up --build -d```
+
+**Common Docker Commands:**
+List all containers.
+```docker ps```
+
+Execute a bash shell on a container.
+```docker exec -it <CONTAINER_ID> sh```
+
+Restart a running container.
+```docker restart <CONTAINER_ID>```
+
+Fetch the logs of a container
+```docker logs <CONTAINER_ID>```
