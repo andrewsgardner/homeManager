@@ -3,6 +3,16 @@
 # base image
 FROM node:10.16.1 as build
 
+# get env vars from compose file
+
+# ENVIRONMENT
+ARG SET_ENVIRONMENT
+ENV Environment=${SET_ENVIRONMENT}
+
+# UiPort
+ARG SET_UI_PORT
+ENV UiPort=${SET_UI_PORT}
+
 # install chrome and update webdriver for protractor tests
 RUN set -eux \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
@@ -45,5 +55,5 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # copy nginx config
 COPY ./nginx.prod.conf /etc/nginx/conf.d/default.conf
 
-# expose port 80
-EXPOSE 80
+# expose port
+EXPOSE $UiPort

@@ -1,2 +1,3 @@
 # keycloak config
-/apartment-manager-realm.json
+/apartment-manager-dev-realm.json
+/apartment-manager-prod-realm.json
