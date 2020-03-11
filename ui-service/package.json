@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 8081 --host 0.0.0.0",
+    "start": "ng serve --port 4202 --proxy-config proxy.conf.json",
+    "serve": "ng serve --port 4202 --proxy-config proxy.conf.json --host=0.0.0.0 --disable-host-check",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "build": "ng build",
     "test": "ng test",

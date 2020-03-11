@@ -48,10 +48,12 @@
             "publicClient": true,
             "baseUrl": "/apartment-manager-client",
             "redirectUris": [
-                "http://localhost:4200/*"
+                "http://localhost:4200/*",
+                "http://localhost:4202/*
             ],
             "webOrigins": [
-                "http://localhost:4200/*"
+                "http://localhost:4200/*",
+                "http://localhost:4202/*
             ]
         }
     ],

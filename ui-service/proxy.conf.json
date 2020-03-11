@@ -1,0 +1,15 @@
+{
+    "/graphql/*": {
+        "target": "http://localhost:4000",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/graphql": ""
+        }
+    },
+    "/auth": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
