@@ -12,7 +12,6 @@ export async function seedDatabase() {
         lastName: 'User',
         nickname: 'Anonymous',
         email: 'example@email.com',
-        password: 'test',
         lastLoginDate: now,
         createdDate: now,
         updatedDate: now,
