@@ -5,7 +5,7 @@ import { Field, ObjectType } from 'type-graphql';
 export class User {
 
     @prop()
-    @Field()
+    @Field({ name: "id" })
     public _id: string;
 
     @prop({ maxLength: 128 })
@@ -23,10 +23,6 @@ export class User {
     @prop({ maxLength: 128, required: true })
     @Field()
     public email: string;
-    
-    @prop({ maxLength: 128, required: true })
-    @Field()
-    public password: string;
 
     @prop()
     @Field()
