@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, DoBootstrap, ApplicationRef } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+
 import { AppRoutingModule } from './app-routing.module';
+import { GraphQLModule } from './graphql.module';
 
 import { AppComponent } from './app.component';
 
@@ -16,7 +19,9 @@ const keycloakService = new KeycloakService();
   imports: [
     KeycloakAngularModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    GraphQLModule
   ],
   providers: [
     {
