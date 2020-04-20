@@ -25,7 +25,7 @@ services:
     ports:
       - ${KEYCLOAK_PORT_PROD}:${KEYCLOAK_PORT_PROD}
     environment:
-      - KEYCLOAK_IMPORT=/opt/jboss/keycloak/apartment-manager-prod-realm.json
+      - KEYCLOAK_IMPORT=/opt/jboss/keycloak/home-manager-prod-realm.json
       - DB_VENDOR=h2
     volumes:
       - keycloak_db_prod:/opt/jboss/keycloak/standalone/data/
@@ -51,7 +51,7 @@ services:
   ui-service:
     build:
       context: ../ui-service
-      dockerfile: am-prod.Dockerfile
+      dockerfile: hm-prod.Dockerfile
       args:
         - SET_ENVIRONMENT=prod
         - SET_UI_PORT=${UI_PORT_PROD}

@@ -11,23 +11,23 @@ Dependencies:
 
 Clone the project files onto your server:
 
-``git clone https://github.com/andrewsgardner/apartmentManager.git .``
+``git clone https://github.com/andrewsgardner/homeManager.git .``
 
 Install npm dependencies and build graphql-service:
 
-1. Navigate to [/graphql-service](https://github.com/andrewsgardner/apartmentManager/tree/master/graphql-service):
+1. Navigate to [/graphql-service](https://github.com/andrewsgardner/homeManager/tree/master/graphql-service):
 2. ``npm install``
 3. ``npm run start``
 
 Install npm dependencies and build ui-service:
 
-1. Navigate to [/ui-service](https://github.com/andrewsgardner/apartmentManager/tree/master/ui-service):
+1. Navigate to [/ui-service](https://github.com/andrewsgardner/homeManager/tree/master/ui-service):
 2. ``npm install``
 3. ``npm run build``
 
 ## Environment Variables
 
-Navigate to [/build](https://github.com/andrewsgardner/apartmentManager/tree/master/build) and create an environment file: ``.env``
+Navigate to [/build](https://github.com/andrewsgardner/homeManager/tree/master/build) and create an environment file: ``.env``
 
 Docker Compose will expect values for the following environment variables:
 
@@ -59,9 +59,9 @@ UI_PORT_PROD=your_value
 
 **Configure Nginx:\***
 
-1. Specify the Nginx port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match ``UI_PORT_PROD``.
+1. Specify the Nginx port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/homeManager/blob/master/ui-service/nginx.prod.conf). This should match ``UI_PORT_PROD``.
 
-2. Specify the Keycloak port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.prod.conf). This should match ``KEYCLOAK_PORT_PROD``.
+2. Specify the Keycloak port in [ui-service/nginx.prod.conf](https://github.com/andrewsgardner/homeManager/blob/master/ui-service/nginx.prod.conf). This should match ``KEYCLOAK_PORT_PROD``.
 
 ###### *Manual configuration required - not included in docker compose build.
 
@@ -93,25 +93,25 @@ UI_PORT=your_value
 
 **Configure Nginx:\***
 
-1. Specify the Nginx port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match ``UI_PORT``.
+1. Specify the Nginx port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/homeManager/blob/master/ui-service/nginx.dev.conf). This should match ``UI_PORT``.
 
-2. Specify the Keycloak port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/apartmentManager/blob/master/ui-service/nginx.dev.conf). This should match ``KEYCLOAK_PORT``.
+2. Specify the Keycloak port in [ui-service/nginx.dev.conf](https://github.com/andrewsgardner/homeManager/blob/master/ui-service/nginx.dev.conf). This should match ``KEYCLOAK_PORT``.
 
 ###### *Manual configuration required - not included in docker compose build.
 
 ## Docker Compose
 
-Build all containers with Docker Compopose from the [/build](https://github.com/andrewsgardner/apartmentManager/tree/master/build) directory.
+Build all containers with Docker Compopose from the [/build](https://github.com/andrewsgardner/homeManager/tree/master/build) directory.
 
 **Production:**
 
-Use the alternate [docker-compose-am-prod.yml](https://github.com/andrewsgardner/apartmentManager/blob/master/build/docker-compose-am-prod.yml) file.
+Use the alternate [docker-compose-hm-prod.yml](https://github.com/andrewsgardner/homeManager/blob/master/build/docker-compose-am-prod.yml) file.
 
-```docker-compose -f docker-compose-am-prod.yml up --build -d```
+```docker-compose -f docker-compose-hm-prod.yml up --build -d```
 
 **Development:**
 
-Use the default [docker-compose.yml](https://github.com/andrewsgardner/apartmentManager/blob/master/build/docker-compose.yml) file.
+Use the default [docker-compose.yml](https://github.com/andrewsgardner/homeManager/blob/master/build/docker-compose.yml) file.
 
 ```docker-compose up --build -d```
 

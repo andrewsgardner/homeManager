@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
 
-  apartment-manager-ui:
-    container_name: apartment-manager-ui
+  home-manager-ui:
+    container_name: home-manager-ui
     build:
       context: .
       dockerfile: Dockerfile

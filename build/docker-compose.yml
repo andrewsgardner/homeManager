@@ -25,7 +25,7 @@ services:
     ports:
       - ${KEYCLOAK_PORT}:${KEYCLOAK_PORT}
     environment:
-      - KEYCLOAK_IMPORT=/opt/jboss/keycloak/apartment-manager-dev-realm.json
+      - KEYCLOAK_IMPORT=/opt/jboss/keycloak/home-manager-dev-realm.json
       - DB_VENDOR=h2
     volumes:
       - keycloak_db_dev:/opt/jboss/keycloak/standalone/data/

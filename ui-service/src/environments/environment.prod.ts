@@ -2,8 +2,8 @@ import { KeycloakConfig } from 'keycloak-angular';
 
 const keycloakConfig: KeycloakConfig = {
   url: '/auth',
-  realm: 'apartment-manager-prod',
-  clientId: 'apartment-manager-client'
+  realm: 'home-manager-prod',
+  clientId: 'home-manager-client'
 };
 
 export const environment = {

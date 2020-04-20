@@ -1,7 +1,7 @@
 {
-    "realm": "apartment-manager",
-    "displayName": "Apartment Manager",
-    "displayNameHtml": "Apartment Manager",
+    "realm": "home-manager",
+    "displayName": "Home Manager",
+    "displayNameHtml": "Home Manager",
     "enabled": true,
     "sslRequired": "external",
     "registrationAllowed": true,
@@ -37,16 +37,16 @@
     },
     "scopeMappings": [
         {
-            "client": "apartment-manager-client",
+            "client": "home-manager-client",
             "roles": ["user"]
         }
     ],
     "clients": [
         {
-            "clientId": "apartment-manager-client",
+            "clientId": "home-manager-client",
             "enabled": true,
             "publicClient": true,
-            "baseUrl": "/apartment-manager-client",
+            "baseUrl": "/home-manager-client",
             "redirectUris": [
                 "http://localhost:4200/*",
                 "http://localhost:4202/*
@@ -60,7 +60,7 @@
     "clientScopeMappings": {
         "account": [
             {
-                "client": "apartment-manager-client",
+                "client": "home-manager-client",
                 "roles": ["view-profile"]
             }
         ]

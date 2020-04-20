@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+
+  home-manager-ui-prod:
+    container_name: home-manager-ui-prod
+    build:
+      context: .
+      dockerfile: hm-prod.Dockerfile
+    ports:
+      - '80:80'

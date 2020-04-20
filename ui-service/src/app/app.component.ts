@@ -10,7 +10,7 @@ import { IUser } from './models/user';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'apartmentManager';
+  title = 'homeManager';
   
   constructor(private userService: UserService) {
     /*

@@ -1,4 +1,4 @@
-# build a keycloak container with the apartmentManager theme
+# build a keycloak container with the homeManager theme
 FROM jboss/keycloak:6.0.1
 
 WORKDIR /opt/jboss/keycloak/
