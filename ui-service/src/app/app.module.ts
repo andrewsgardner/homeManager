@@ -5,6 +5,7 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { GraphQLModule } from './graphql.module';
+import { MaterialModule } from './material-module';
 
 import { AppComponent } from './app.component';
 
@@ -21,7 +22,8 @@ const keycloakService = new KeycloakService();
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GraphQLModule
+    GraphQLModule,
+    MaterialModule
   ],
   providers: [
     {
