@@ -1,16 +1,22 @@
 /* ---------------------- variables.scss
-1. Colors
-2. Grid Breakpoints
+1. General
+2. Colors
+3. Grid Breakpoints
  ------------------------------------ */
 
 @import '~@angular/material/theming';
 
 /**
- * 1. Colors
+ * 1. General
+ */
+$browser-context: 16;
+
+/**
+ * 2. Colors
  */
 
 /**
- * 2. Grid Breakpoints
+ * 3. Grid Breakpoints
  */
 $mq-unit: "px";
 $breakpoints: (
