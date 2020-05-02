@@ -1,0 +1,246 @@
+// both portrait and landscape
+// max-width: 480px
+@mixin mobile-only {
+    @if map-has-key($breakpoints, "mobile-landscape") {
+        @media (max-width: map-get($breakpoints, "mobile-landscape") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("mobile-landscape", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everything up to and including the portrait width of the phone
+// max-width: 320px
+@mixin mobile-portrait-and-below {
+    @if map-has-key($breakpoints, "mobile-portrait") {
+        @media (max-width: map-get($breakpoints, "mobile-portrait") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("mobile-portrait", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everything above and including the mobile portrait
+// min-width: 320px
+@mixin mobile-portrait-and-up {
+    @if map-has-key($breakpoints, "mobile-portrait") {
+        @media (min-width: map-get($breakpoints, "mobile-portrait") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("mobile-portrait", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everthing larger than a portrait mobile up until mobile landscape
+// min-width: 321px and max-width: 480px
+@mixin mobile-landscape-only {
+    @if map-has-key($breakpoints, "mobile-portrait") and map-has-key($breakpoints, "mobile-landscape") {
+        $mobile-portrait-plus-1: map-get($breakpoints, "mobile-portrait") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $mobile-portrait-plus-1) and (max-width: map-get($breakpoints, "mobile-landscape") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @if (map-get($breakpoints, "mobile-portrait") == null) {
+            @warn variableMissing("mobile-portrait", "src/scss/_variables", "$breakpoints");
+        }
+
+        @if (map-get($breakpoints, "mobile-landscape") == null) {
+            @warn variableMissing("mobile-landscape", "src/scss/_variables", "$breakpoints");
+        }
+    }
+}
+
+// everything up to and including the mobile landscape width
+// max-width: 480px
+@mixin mobile-landscape-and-below {
+    @if map-has-key($breakpoints, "mobile-landscape") {
+        @media only screen and (max-width: map-get($breakpoints, "mobile-landscape") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("mobile-landscape", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everything above and including the mobile landscape width
+// min-width: 321px
+@mixin mobile-landscape-and-up {
+    @if map-has-key($breakpoints, "mobile-portrait") {
+        $mobile-portrait-plus-1: map-get($breakpoints, "mobile-portrait") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $mobile-portrait-plus-1) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("mobile-portrait", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// both the portrait and landscape width of the tablet
+// min-width: 481px and max-width: 1024px
+@mixin tablet-only {
+    @if map-has-key($breakpoints, "mobile-landscape") and map-has-key($breakpoints, "tablet-landscape") {
+        $mobile-landscape-plus-1: map-get($breakpoints, "mobile-landscape") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $mobile-landscape-plus-1) and (max-width: map-get($breakpoints, "tablet-landscape") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @if (map-get($breakpoints, "mobile-landscape") == null) {
+            @warn variableMissing("mobile-landscape", "src/scss/_variables", "$breakpoints");
+        }
+
+        @if (map-get($breakpoints, "tablet-landscape") == null) {
+            @warn variableMissing("tablet-landscape", "src/scss/_variables", "$breakpoints");
+        }
+    }
+}
+
+// everything larger than mobile landscape up until the portrait width of the tablet
+// min-width: 481px and max-width: 768px
+@mixin tablet-portrait-only {
+    @if map-has-key($breakpoints, "mobile-landscape") and map-has-key($breakpoints, "tablet-portrait") {
+        $mobile-landscape-plus-1: map-get($breakpoints, "mobile-landscape") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $mobile-landscape-plus-1) and (max-width: map-get($breakpoints, "tablet-portrait") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @if (map-get($breakpoints, "mobile-landscape") == null) {
+            @warn variableMissing("mobile-landscape", "src/scss/_variables", "$breakpoints");
+        }
+
+        @if (map-get($breakpoints, "tablet-portrait") == null) {
+            @warn variableMissing("tablet-portrait", "src/scss/_variables", "$breakpoints");
+        }
+    }
+}
+
+// everything below and including the portrait width of the tablet
+// max-width: 768px
+@mixin tablet-portrait-and-below {
+    @if map-has-key($breakpoints, "tablet-portrait") {
+        @media only screen and (max-width: map-get($breakpoints, "tablet-portrait") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("tablet-portrait", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everything above and including the portrait width of the tablet
+// min-width: 481px
+@mixin tablet-portrait-and-up {
+    @if map-has-key($breakpoints, "mobile-landscape") {
+        $mobile-landscape-plus-1: map-get($breakpoints, "mobile-landscape") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $mobile-landscape-plus-1) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("mobile-landscape", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// larger than portrait but less than or equal to the landscape width
+// min-width: 769px and max-width: 1024px
+@mixin tablet-landscape-only {
+    @if map-has-key($breakpoints, "tablet-portrait") and map-has-key($breakpoints, "tablet-landscape") {
+        $tablet-portrait-plus-1: map-get($breakpoints, "tablet-portrait") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $tablet-portrait-plus-1) and (max-width: map-get($breakpoints, "tablet-landscape") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @if (map-get($breakpoints, "tablet-portrait") == null) {
+            @warn variableMissing("tablet-portrait", "src/scss/_variables", "$breakpoints");
+        }
+
+        @if (map-get($breakpoints, "tablet-landscape") == null) {
+            @warn variableMissing("tablet-landscape", "src/scss/_variables", "$breakpoints");
+        }
+    }
+}
+
+// up to and including the tablet landscape
+// max-width: 1024px
+@mixin tablet-landscape-and-below {
+    @if map-has-key($breakpoints, "tablet-landscape") {
+        @media only screen and (max-width: map-get($breakpoints, "tablet-landscape") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("tablet-landscape", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everything larger than portrait tablet
+// min-width: 769px
+@mixin tablet-landscape-and-up {
+    @if map-has-key($breakpoints, "tablet-portrait") {
+        $tablet-portrait-plus-1: map-get($breakpoints, "tablet-portrait") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $tablet-portrait-plus-1) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("tablet-portrait", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everything larger than a landscape tablet
+// min-width: 1025
+@mixin desktop-and-up {
+    @if map-has-key($breakpoints, "tablet-landscape") {
+        $tablet-landscape-plus-1: map-get($breakpoints, "tablet-landscape") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $tablet-landscape-plus-1) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("tablet-landscape", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everything below and including the desktop
+// max-width: 1382px
+@mixin desktop-and-below {
+    @if map-has-key($breakpoints, "desktop") {
+        @media only screen and (max-width: map-get($breakpoints, "desktop") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @warn variableMissing("desktop", "src/scss/_variables", "$breakpoints");
+    }
+}
+
+// everything larger than a landscape tablet but less than or equal to the desktop
+// min-width: 1025px and max-width: 1382px
+@mixin desktop-only {
+    @if map-has-key($breakpoints, "tablet-landscape") and map-has-key($breakpoints, "desktop") {
+        $tablet-landscape-plus-1: map-get($breakpoints, "tablet-landscape") + 1 + $mq-unit;
+
+        @media only screen and (min-width: $tablet-landscape-plus-1) and (max-width: map-get($breakpoints, "desktop") + $mq-unit) {
+            @content;
+        }
+    } @else {
+        @if (map-get($breakpoints, "tablet-landscape") == null) {
+            @warn variableMissing("tablet-landscape", "src/scss/_variables", "$breakpoints");
+        }
+
+        @if (map-get($breakpoints, "desktop") == null) {
+            @warn variableMissing("desktop", "src/scss/_variables", "$breakpoints");
+        }
+    }
+}
+
+// retina screens have a 1.5 pixel ratio, not 2
+@mixin retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+        @content;
+    }
+}
