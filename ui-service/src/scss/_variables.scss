@@ -1,0 +1,22 @@
+/* ---------------------- variables.scss
+1. Colors
+2. Grid Breakpoints
+ ------------------------------------ */
+
+@import '~@angular/material/theming';
+
+/**
+ * 1. Colors
+ */
+
+/**
+ * 2. Grid Breakpoints
+ */
+$mq-unit: "px";
+$breakpoints: (
+    mobile-portrait: 320,
+    mobile-landscape: 480,
+    tablet-portrait: 768,
+    tablet-landscape: 1024,
+    desktop: 1382
+);
