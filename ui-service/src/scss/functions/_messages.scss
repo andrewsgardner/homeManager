@@ -1,0 +1,4 @@
+@function variableMissing($var, $path, $map) {
+    @return "Unfortunately, no value could be retrieved from '" + $var + "' in " + $path + ". "
+        + "Please make sure it is defined in '" + $map + "' map.";
+}
