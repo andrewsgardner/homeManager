@@ -2,7 +2,7 @@ import { getModelForClass, prop } from '@typegoose/typegoose';
 import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType()
-export class User {
+export class UserEntity {
 
     @prop()
     @Field({ name: "id" })
@@ -42,4 +42,9 @@ export class User {
 
 }
 
-export const UserModel = getModelForClass(User);
+export const UserModel = getModelForClass(UserEntity, {
+    schemaOptions: {
+        collection: "users",
+        versionKey: "version"
+    }
+});
