@@ -6,14 +6,15 @@ import gql from 'graphql-tag';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { BaseService } from './base.service';
-import { IGqlResponseEnvelope } from '../models/gql-response-envelope';
-import { IUser } from '../models/user';
+import { GqlBaseService } from './gql-base.service';
+import { IGqlResponseEnvelope } from '../models/gql-response-envelope.interface';
+import { IUser } from '../models/user.interface';
+import { IUserData } from '../models/user-data.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends BaseService {
+export class UserService extends GqlBaseService {
 
   constructor(private apollo: Apollo) {
     super()
@@ -40,5 +41,28 @@ export class UserService extends BaseService {
       map((res) => this.convertGqlResponse<IUser>(res, 'user')),
       catchError((e) => this.handleGqlException<IUser>(e))
     );
+  }
+
+  public queryUserData(filterSpec: any): Observable<IGqlResponseEnvelope<IUserData[]>> {
+    const query = gql`query UserDataList($filter: ObjectIdScalar!) {
+      userDataList(filter: $filter) {
+        items {
+          id
+          type
+          name
+          userdata
+        }
+        totalCount
+      }
+    }`;
+
+    const variables = {
+      filter: filterSpec
+    };
+
+    return this.apollo.query<any>({ query, variables }).pipe(
+      map((res) => this.convertGqlResponse<IUserData[]>(res, 'userDataList')),
+      catchError((e) => this.handleGqlException<IUserData[]>(e))
+    )
   }
 }
