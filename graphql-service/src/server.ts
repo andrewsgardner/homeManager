@@ -6,15 +6,12 @@ import { ObjectId } from 'mongodb';
 import * as path from 'path';
 import { buildSchema } from 'type-graphql';
 
-import { UserResolver } from './resolvers/user-resolver';
-import { User } from './entities/user';
+import { IContext } from './models/context.interface';
+import { UserResolver } from './resolvers/user.resolver';
+import { UserDataResolver } from './resolvers/user-data.resolver';
 import { seedDatabase } from './utils/helpers';
 import { TypegooseMiddleware } from './typegoose-middleware';
-import { ObjectIdScalar } from './utils/object-id.scalar';
-
-export interface Context {
-    user: User;
-}
+import { ObjectIdScalar } from './scalars/object-id.scalar';
 
 async function bootstrap() {
 
@@ -37,7 +34,10 @@ async function bootstrap() {
 
         // build TypeGraphQL executable schema
         const schema = await buildSchema({
-            resolvers: [UserResolver],
+            resolvers: [
+                UserResolver,
+                UserDataResolver,
+            ],
             emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
             globalMiddlewares: [TypegooseMiddleware],
             scalarsMap: [{
@@ -46,7 +46,7 @@ async function bootstrap() {
             }],
         });
 
-        const context: Context = {
+        const context: IContext = {
             user: defaultUser
         };
 
