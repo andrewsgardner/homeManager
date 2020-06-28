@@ -18,4 +18,8 @@
   </li>
 </ul>
 
+<ng-container *ngIf="userProfile$ | async as p"> <!-- TODO remove -->
+  <span>{{ p.id }}</span>
+</ng-container>
+
 <router-outlet></router-outlet>
