@@ -2,12 +2,12 @@ import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { IGqlResponseEnvelope } from '../models/gql-response-envelope';
+import { IGqlResponseEnvelope } from '../models/gql-response-envelope.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BaseService {
+export class GqlBaseService {
 
   constructor() { }
 
@@ -29,7 +29,7 @@ export class BaseService {
       };
 
       if (_.isString(countPath)) {
-        retVal.pageInfo = {
+        retVal.pagination = {
           skippedRecords: 0,
           totalCount: _.get(res, `data.${countPath}.totalCount`)
         };
@@ -41,12 +41,16 @@ export class BaseService {
   protected handleGqlException<T>(e: any): Observable<IGqlResponseEnvelope<T>> {
     console.error(`[GQL RESPONSE ERROR]\n${JSON.stringify(e)}`);
 
+    const graphQLErrors: any = _.get(e, 'graphQLErrors');
+    const extensions: any = _.get(graphQLErrors[_.findIndex(graphQLErrors, 'extensions')], 'extensions');
+
     return of({
       success: false,
       errors: [{
-        code: e.status,
+        code: _.get(extensions, 'code'),
         errorMessage: 'A system error has occured - please try again.',
         innerError: e.message,
+        stacktrace: _.get(extensions, 'exception.stacktrace'),
       }]
     });
   }
