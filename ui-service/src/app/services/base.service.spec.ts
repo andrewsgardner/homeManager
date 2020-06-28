@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BaseService } from './base.service';
+import { GqlBaseService } from './gql-base.service';
 
 describe('BaseService', () => {
-  let service: BaseService;
+  let service: GqlBaseService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BaseService);
+    service = TestBed.inject(GqlBaseService);
   });
 
   it('should be created', () => {
