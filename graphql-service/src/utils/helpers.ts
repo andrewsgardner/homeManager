@@ -1,4 +1,4 @@
-import { User, UserModel } from '../entities/user';
+import { UserEntity, UserModel } from '../entities/user.entity';
 import { DateTime } from 'luxon';
 
 export async function seedDatabase() {
@@ -16,7 +16,7 @@ export async function seedDatabase() {
         createdDate: now,
         updatedDate: now,
         systemUser: true
-    } as User).save();
+    } as UserEntity).save();
 
     return {
         defaultUser,
