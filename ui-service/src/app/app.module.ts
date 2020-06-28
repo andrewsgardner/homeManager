@@ -10,6 +10,7 @@ import { MaterialModule } from './material-module';
 import { AppComponent } from './app.component';
 
 import { ConfigService } from 'src/app/services/config.service';
+import { CanAuthenticationGuard } from './guards/keycloak-auth.guard';
 
 const keycloakService = new KeycloakService();
 
@@ -29,7 +30,8 @@ const keycloakService = new KeycloakService();
     {
       provide: KeycloakService,
       useValue: keycloakService
-    }
+    },
+    CanAuthenticationGuard
   ],
   entryComponents: [AppComponent]
 })
