@@ -35,6 +35,12 @@
             }
         ]
     },
+    "groups": [
+        {
+            "name": "hm-user",
+            "path": "/hm-user"
+        }
+    ],
     "scopeMappings": [
         {
             "client": "home-manager-client",
